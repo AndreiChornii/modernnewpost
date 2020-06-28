@@ -4,11 +4,9 @@ try {
         
 //        echo $_SERVER['REQUEST_METHOD'];
 //        echo "<BR />";
-        
 	$route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
-//        echo $route;
 
-	$entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Ijdb\IjdbRoutes());
+	$entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Newpost\NewpostRoutes());
 	$entryPoint->run();
 }
 catch (PDOException $e) {

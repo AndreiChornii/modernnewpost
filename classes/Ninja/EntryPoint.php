@@ -64,12 +64,13 @@ class EntryPoint {
                 $output = $this->loadTemplate('404.html.php');
                 $title = 'Page not found.';
             }
-
+            
             echo $this->loadTemplate('layout.html.php', [
                 'loggedIn' => $authentication->isLoggedIn(),
                 'user' => $authentication->getUser(),
                 'output' => $output,
-                'title' => $title
+                'title' => $title,
+                'route' => $this->route
             ]);
         }
     }
