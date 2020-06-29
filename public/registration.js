@@ -58,10 +58,23 @@ formManager.send = function send() {
         body: JSON.stringify(data)
 //        body: (data)
     }).then(function(response){
-        return response.json();
-    }).then(function(data){
-        console.log(data);
-        alert(data.message);
+//        console.dir(response.body);
+        return response.text();
+    }).then(function(text){
+//        console.dir(text);
+//        console.dir(document.querySelector('html'));
+        let page = document.querySelector('.page');
+        
+        let html = document.querySelector('html');
+        let html_dummy = document.createElement('html');
+        html_dummy.innerHTML = text;
+        
+        let errors_dummy = html_dummy.querySelector( '.errors' );
+        if(errors_dummy) {
+            page.prepend(errors_dummy);
+        } else {
+            html.innerHTML = text;
+        }
     });
 };
 

@@ -37,7 +37,7 @@ class Register {
 //        $characters = json_decode($data); // decode the JSON feed
         
         $user = json_decode(file_get_contents('php://input'), true);
-        var_dump($request);
+//        var_dump($request);
         
         // Assume the data is valid to begin with
         $valid = true;
