@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/styles.css">
+    <script defer src="/registration.js" type="text/javascript"></script>
     <title>modernnewpost</title>
 </head>
 
@@ -16,7 +18,7 @@
 
                 <li><a class="header__link<?php if($route === '/') {echo ' active';} ?>" href="/">Login</a></li>
 
-                <li><a class="header__link<?php if($route === 'user/register') {echo ' active';} ?>" href="/registration">Registration</a></li>
+                <li><a class="header__link<?php if($route === 'user/register') {echo ' active';} ?>" href="/user/register">Registration</a></li>
 
                 <li><a class="header__link<?php if($route === '/documents') {echo ' active';} ?>" href="/documents">Documents</a></li>
 
@@ -52,8 +54,7 @@
     <footer class="footer">
         modernnewpost
     </footer>
-    <script src="registration.js"></script>
-    <script src="get_documents.js"></script>
-    <script src="documents.js"></script>
+<!--    <script src="get_documents.js"></script>
+    <script src="documents.js"></script>-->
 </body>
 </html>
