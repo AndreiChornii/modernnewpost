@@ -62,6 +62,7 @@ class DatabaseTable {
             $query .= ' OFFSET ' . $offset;
         }
         $result = $this->query($query, $parameters);
+//        var_dump($result->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs));
         return $result->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
     }
 

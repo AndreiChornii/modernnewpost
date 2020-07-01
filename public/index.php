@@ -5,7 +5,9 @@ try {
 //        echo $_SERVER['REQUEST_METHOD'];
 //        echo "<BR />";
 	$route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
-
+//        echo $route;
+//        echo "<BR />";
+        
 	$entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Newpost\NewpostRoutes());
 	$entryPoint->run();
 }

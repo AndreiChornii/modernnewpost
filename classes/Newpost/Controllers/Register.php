@@ -87,4 +87,45 @@ class Register {
             'title' => 'Registration Successful'];
     }
     
+    public function loginForm(){
+        return ['template' => 'login.html.php',
+            'title' => 'Login'];
+    }
+    
+    public function loginUser(){
+        $login = $_POST['login'];
+        $email = $_POST['email'];
+//        var_dump($login);
+//        var_dump($email);
+
+        $User = $this->usersTable->find('email', $email);
+        
+        /* if name or email is not correct
+           send page login with error
+        
+*/
+        var_dump($login);
+        var_dump($User[0]);
+        if(empty($User) || empty($User[0]) || ($login != $User[0]->login) || ($email != $User[0]->email)) {
+            $error = 'user not found, enter correct username and email';
+//            ECHO $error;
+//            include '../templates/login.html.php';
+//            include '../templates/layout.html.php';
+            $_SESSION['user'] = NULL;
+//            header("Location: /");
+//            die;
+            return ['template' => 'login.html.php',
+                'title' => 'Login',
+                'variables' => [
+                    'errors' => $error,
+//                    'user' => $user
+                ]
+            ];
+        }
+        
+        $_SESSION['user'] = $User[0];
+
+        header("Location: /documents");
+    }
+    
 }

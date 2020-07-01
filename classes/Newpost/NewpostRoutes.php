@@ -41,7 +41,25 @@ class NewpostRoutes implements \Ninja\Routes {
                     'controller' => $userController,
                     'action' => 'success'
                 ]
-            ]
+            ],
+            '' => [
+                'GET' => [
+                    'controller' => $userController,
+                    'action' => 'loginForm'
+                ]
+            ],
+            'login' => [
+                'POST' => [
+                    'controller' => $userController,
+                    'action' => 'loginUser'
+                ]
+            ],
+//            'documents' => [
+//                'GET' => [
+//                    'controller' => $userController,
+//                    'action' => 'success'
+//                ]
+//            ],
         ];
 
         return $routes;
