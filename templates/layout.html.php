@@ -16,7 +16,7 @@
         <nav>
             <ul class="header__menu">
 
-                <li><a class="header__link<?php if($route === '/') {echo ' active';} ?>" href="/">Login</a></li>
+                <li><a class="header__link<?php if($route === 'login') {echo ' active';} ?>" href="/login">Login</a></li>
 
                 <li><a class="header__link<?php if($route === 'user/register') {echo ' active';} ?>" href="/user/register">Registration</a></li>
 

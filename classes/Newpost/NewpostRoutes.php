@@ -23,7 +23,7 @@ class NewpostRoutes implements \Ninja\Routes {
 
         $documentController = new \Newpost\Controllers\Document($this->documentsTable, $this->usersTable);
         $userController = new \Newpost\Controllers\Register($this->usersTable);
-//        $loginController = new \Newpost\Controllers\Login($this->authentication);
+        $loginController = new \Newpost\Controllers\Login($this->authentication);
 
         $routes = [
             'user/register' => [
@@ -42,17 +42,22 @@ class NewpostRoutes implements \Ninja\Routes {
                     'action' => 'success'
                 ]
             ],
-            '' => [
+            'login' => [
                 'GET' => [
-                    'controller' => $userController,
+                    'controller' => $loginController,
                     'action' => 'loginForm'
+                ],
+                'POST' => [
+                    'controller' => $loginController,
+                    'action' => 'processLogin'
                 ]
             ],
-            'login' => [
-                'POST' => [
-                    'controller' => $userController,
-                    'action' => 'loginUser'
-                ]
+            'login/success' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'success'
+                ],
+                'login' => true
             ],
 //            'documents' => [
 //                'GET' => [

@@ -6,21 +6,24 @@ class Authentication {
 
     private $users;
     private $usernameColumn;
-    private $passwordColumn;
+    private $emailColumn;
 
-    public function __construct(DatabaseTable $users, $usernameColumn, $passwordColumn) {
+    public function __construct(DatabaseTable $users, $usernameColumn, $emailColumn) {
         session_start();
         $this->users = $users;
         $this->usernameColumn = $usernameColumn;
-        $this->passwordColumn = $passwordColumn;
+        $this->emailColumn = $emailColumn;
     }
 
-    public function login($username, $password) {
+    public function login($username, $email) {
         $user = $this->users->find($this->usernameColumn, strtolower($username));
-        if (!empty($user) && password_verify($password, $user[0]->{$this->passwordColumn})) {
+//        var_dump($user);
+//        var_dump($this->usernameColumn);
+//        var_dump($this->emailColumn);
+        if (!empty($user) && ($email === $user[0]->{$this->emailColumn})) {
             session_regenerate_id();
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $user[0]->{$this->passwordColumn};
+            $_SESSION['email'] = $user[0]->{$this->emailColumn};
             return true;
         } else {
             return false;

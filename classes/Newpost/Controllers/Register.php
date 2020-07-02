@@ -87,11 +87,6 @@ class Register {
             'title' => 'Registration Successful'];
     }
     
-    public function loginForm(){
-        return ['template' => 'login.html.php',
-            'title' => 'Login'];
-    }
-    
     public function loginUser(){
         $login = $_POST['login'];
         $email = $_POST['email'];
