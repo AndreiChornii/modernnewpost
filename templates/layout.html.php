@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/styles.css">
     <script defer src="/registration.js" type="text/javascript"></script>
+    <script defer src="/documents.js" type="text/javascript"></script>
     <title>modernnewpost</title>
 </head>
 
@@ -54,7 +55,5 @@
     <footer class="footer">
         modernnewpost
     </footer>
-    <!--    <script src="get_documents.js"></script>
-    <script src="documents.js"></script>-->
 </body>
 </html>

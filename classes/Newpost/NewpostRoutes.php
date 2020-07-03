@@ -21,7 +21,7 @@ class NewpostRoutes implements \Ninja\Routes {
 //        $jokesTable = new \Ninja\DatabaseTable($pdo, 'joke', 'id');
 //        $authorsTable = new \Ninja\DatabaseTable($pdo, 'author', 'id');
 
-        $documentController = new \Newpost\Controllers\Document($this->documentsTable, $this->usersTable);
+        $documentController = new \Newpost\Controllers\Document($this->documentsTable);
         $userController = new \Newpost\Controllers\Register($this->usersTable);
         $loginController = new \Newpost\Controllers\Login($this->authentication);
 
@@ -59,12 +59,16 @@ class NewpostRoutes implements \Ninja\Routes {
                 ],
                 'login' => true
             ],
-//            'documents' => [
-//                'GET' => [
-//                    'controller' => $userController,
-//                    'action' => 'success'
-//                ]
-//            ],
+            'documents' => [
+                'GET' => [
+                    'controller' => $documentController,
+                    'action' => 'documentsForm'
+                ],
+                'POST' => [
+                    'controller' => $documentController,
+                    'action' => 'getDocuments'
+                ]
+            ],
         ];
 
         return $routes;
