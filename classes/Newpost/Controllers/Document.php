@@ -13,12 +13,13 @@ use \Ninja\DatabaseTable;
 
 class Document {
 
-    private $documentsTable;
+    private $documentTable;
 //    private $authentication;
 //    private $usersTable;
 
-    public function __construct(DatabaseTable $documentsTable) {
-        $this->documentsTable = $documentsTable;
+    public function __construct(DatabaseTable $documentTable) {
+//        session_start();
+        $this->documentTable = $documentTable;
 //        $this->authentication = $authentication;
 //        $this->usersTable = $usersTable;
     }
@@ -40,13 +41,17 @@ class Document {
 
         if ($isValid['rezult']) {
             
-            $user = $this->authentication->getUser();
-            $request['id_user'] = $user;
+            
+            
+//            $user = $this->authentication->getUser();
+            $request['id_user'] = $_SESSION['id_user'];
             $request['id'] = '';
             
-            var_dump($request);
+//            var_dump($request);
 
-//            $this->documentsTable->save($request);
+//            var_dump($this->documentsTable);
+
+            $this->documentTable->save($request);
 //            
 //            
 //            $documents = getDocuments($request['id_user'], $DB);

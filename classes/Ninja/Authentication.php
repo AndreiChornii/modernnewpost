@@ -24,6 +24,8 @@ class Authentication {
             session_regenerate_id();
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $user[0]->{$this->emailColumn};
+            $_SESSION['id_user'] = $user[0]->id;
+//            var_dump($_SESSION);
             return true;
         } else {
             return false;

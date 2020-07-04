@@ -8,7 +8,7 @@
 
 namespace Newpost\Entity;
 
-class Documents{
+class Document{
     public $id;
     public $ttn;
     public $id_user;

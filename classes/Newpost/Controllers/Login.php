@@ -22,7 +22,7 @@ class Login {
 
     public function processLogin() {
         if ($this->authentication->login($_POST['login'], $_POST['email'])) {
-            echo '/login/success';
+//            echo '/login/success';
 //            var_dump($_SESSION);
             header('location: /login/success');
             
