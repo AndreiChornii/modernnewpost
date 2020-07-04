@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/modernnewpost/public/documents.js</file>
+            <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Document.php</file>
+            <file>file:/var/www/modernnewpost/templates/documents.html.php</file>
             <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Register.php</file>
+            <file>file:/var/www/modernnewpost/classes/Ninja/DatabaseTable.php</file>
             <file>file:/var/www/modernnewpost/classes/Newpost/NewpostRoutes.php</file>
-            <file>file:/var/www/modernnewpost/templates/login.html.php</file>
-            <file>file:/var/www/modernnewpost/templates/layout.html.php</file>
+            <file>file:/var/www/modernnewpost/public/registration.js</file>
+            <file>file:/var/www/modernnewpost/classes/Newpost/Entity/Document.php</file>
+            <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Login.php</file>
         </group>
     </open-files>
 </project-private>

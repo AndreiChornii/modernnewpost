@@ -44,7 +44,7 @@ formManagerTtn.send = function send() {
         ttn: this.ttn.value
     };
 
-    fetch('/getDocuments', {
+    fetch('/documents', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

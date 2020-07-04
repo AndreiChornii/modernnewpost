@@ -14,10 +14,12 @@ use \Ninja\DatabaseTable;
 class Document {
 
     private $documentsTable;
+//    private $authentication;
 //    private $usersTable;
 
     public function __construct(DatabaseTable $documentsTable) {
         $this->documentsTable = $documentsTable;
+//        $this->authentication = $authentication;
 //        $this->usersTable = $usersTable;
     }
     
@@ -27,22 +29,26 @@ class Document {
     }
     
     public function getDocuments() {
-        echo '11111111111111111111111111';
+//        return ['template' => 'loginsuccess.html.php', 
+//                'title' => 'getDocuments'];
+//        echo '11111111111111111111111111';
         $request = json_decode(file_get_contents('php://input'), true);
-        var_dump($request);
-
-        $isValid = $this->documentsTable->validTtn($request);
+//        var_dump($request);
+//
+        $isValid = $this->validTtn($request);
+//        var_dump($isValid);
 
         if ($isValid['rezult']) {
-
-            $request['id_user'] = $_SESSION['user']['id'];
+            
+            $user = $this->authentication->getUser();
+            $request['id_user'] = $user;
             $request['id'] = '';
             
             var_dump($request);
 
-            $this->documentsTable->save($request);
-            
-            
+//            $this->documentsTable->save($request);
+//            
+//            
 //            $documents = getDocuments($request['id_user'], $DB);
 //            $ttn = getStatus($request);
 //
@@ -60,6 +66,26 @@ class Document {
 
             echo json_encode($response);
         }
+    }
+    
+    public function validTtn($data){
+        $errors = [];
+
+        if (!preg_match('/^[0-9]{14}$/i', $data['ttn'])) {
+            $errors['ttn'] = 'ttn is not valid';
+        }
+
+        if ($errors) {
+            $response = [
+                'rezult' => false,
+                'errors' => $errors
+            ];
+            return $response;
+        }
+        $response = [
+            'rezult' => true
+        ];
+        return $response;
     }
 
     private function valid($data) {
