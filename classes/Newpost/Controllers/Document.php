@@ -55,7 +55,12 @@ class Document {
 //            
 //            
 //            $documents = getDocuments($request['id_user'], $DB);
+            $documents = $this->documentTable->find('id_user', $request['id_user']);
+            var_dump($documents);
 //            $ttn = getStatus($request);
+            var_dump($request['ttn']);
+            $ttn = $this->getStatus($request);
+            var_dump($ttn);
 //
 //            if (($documents !== 'Get ttns bad') || ($ttn['rez'] !== 'from new_post bad')) {
 //                $documents_and_ttn = [];
@@ -109,6 +114,79 @@ class Document {
             return $errors;
         }
         return true;
+    }
+    
+    public function getStatus($data){
+        $url_str = 'https://api.novaposhta.ua/v2.0/json/';
+        $post_str = '
+            {
+                "apiKey": "8b9134af8dddb5e26f98be43c5fdf847",
+                "modelName": "TrackingDocument",
+                "calledMethod": "getStatusDocuments",
+                "methodProperties": {
+                    "Documents": [
+                        {
+                            "DocumentNumber": "' . $data['ttn'] . '",
+                            "Phone":""
+                        }
+                    ]
+                }
+
+            }
+            ';
+    //    echo $post_str;
+    //    exit();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url_str);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json;charset=UTF-8'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_str
+        );
+        $statusDate = curl_exec($ch);
+        if (curl_errno($ch)) {
+            // print "Error curl: ". curl_error($ch);
+            $rezult = "Error curl: " . curl_error($ch);
+            $rez = "from new_post bad";
+            $to_fe = array(
+                'rez' => $rez,
+                'rezult' => $rezult
+            );
+            return $to_fe;
+        } else {
+            // echo("adr: ");
+            //    print_r($adr);
+            //    echo("<BR />");
+            $decoded = json_decode($statusDate);
+    //        var_dump($decoded);
+    //        exit();
+            $date = 'data';
+            $got_array = $decoded->$date;
+
+    //        //элементы ттн
+            $ttn_obj = $got_array[0];
+    //        var_dump($ttn_obj);
+            $sta = 'Status';
+            $Status = $ttn_obj->$sta;
+            $snd = 'WarehouseSender';
+            $WarehouseSender = $ttn_obj->$snd;
+            $rcp = 'WarehouseRecipient';
+            $WarehouseRecipient = $ttn_obj->$rcp;
+
+    //
+            $data = [];
+
+            $data['Status'] = $Status;
+            $data['WarehouseSender'] = $WarehouseSender;
+            $data['WarehouseRecipient'] = $WarehouseRecipient;
+
+            $data['rez'] = "from new_post ok";
+    //       
+            return $data;
+    //        var_dump($data);
+        }
     }
 
 }

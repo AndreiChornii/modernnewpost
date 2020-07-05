@@ -18,7 +18,9 @@ class Document{
         $this->documentsTable = $documentsTable;
     }
     
-    
+//    public function getDocumentsArray($id_user){
+//        
+//    }
 //    public function validTtn($data){
 //        $ttn = $data['ttn'];
 //        $id_user = $data['id_user'];
