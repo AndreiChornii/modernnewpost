@@ -5,13 +5,13 @@
         <group>
             <file>file:/var/www/modernnewpost/public/documents.js</file>
             <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Document.php</file>
+            <file>file:/var/www/modernnewpost/classes/Ninja/Authentication.php</file>
             <file>file:/var/www/modernnewpost/templates/documents.html.php</file>
-            <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Register.php</file>
+            <file>file:/var/www/modernnewpost/classes/Ninja/Api.php</file>
             <file>file:/var/www/modernnewpost/classes/Ninja/DatabaseTable.php</file>
             <file>file:/var/www/modernnewpost/classes/Newpost/NewpostRoutes.php</file>
-            <file>file:/var/www/modernnewpost/public/registration.js</file>
-            <file>file:/var/www/modernnewpost/classes/Newpost/Entity/Document.php</file>
             <file>file:/var/www/modernnewpost/classes/Newpost/Controllers/Login.php</file>
+            <file>file:/var/www/modernnewpost/classes/Newpost/Entity/Document.php</file>
         </group>
     </open-files>
 </project-private>

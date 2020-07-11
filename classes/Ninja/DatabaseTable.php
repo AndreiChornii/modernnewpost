@@ -174,7 +174,7 @@ class DatabaseTable {
             $insertId = $this->insert($record);
             $entity->{$this->primaryKey} = $insertId;
         } catch (\PDOException $e) {
-            echo $e;
+//            echo $e;
 //            var_dump($record);
             $this->update($record);
         }

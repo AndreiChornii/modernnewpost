@@ -65,6 +65,9 @@ class EntryPoint {
                 $title = 'Page not found.';
             }
             
+//            echo $title;
+//            if( (trim($title) === 'Log In') || (trim($title) === 'Register an account') || (trim($title) === 'Documents') )
+            if(trim($title) !== '')
             echo $this->loadTemplate('layout.html.php', [
                 'loggedIn' => $authentication->isLoggedIn(),
                 'user' => $authentication->getUser(),

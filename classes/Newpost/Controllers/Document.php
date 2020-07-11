@@ -42,8 +42,7 @@ class Document {
         if ($isValid['rezult']) {
             
             
-            
-//            $user = $this->authentication->getUser();
+            //            $user = $this->authentication->getUser();
             $request['id_user'] = $_SESSION['id_user'];
             $request['id'] = '';
             
@@ -56,11 +55,12 @@ class Document {
 //            
 //            $documents = getDocuments($request['id_user'], $DB);
             $documents = $this->documentTable->find('id_user', $request['id_user']);
-            var_dump($documents);
-//            $ttn = getStatus($request);
-            var_dump($request['ttn']);
+//            var_dump($documents);
+//            echo json_encode($documents);
+//          DELETE  $ttn = getStatus($request);  
+//            var_dump($request['ttn']);
             $ttn = $this->getStatus($request);
-            var_dump($ttn);
+//            var_dump($ttn);
 //
 //            if (($documents !== 'Get ttns bad') || ($ttn['rez'] !== 'from new_post bad')) {
 //                $documents_and_ttn = [];
@@ -68,6 +68,11 @@ class Document {
 //                $documents_and_ttn['ttn'] = $ttn;
 //                echo json_encode($documents_and_ttn);
 //            }
+            
+            $documents_and_ttn = [];
+            $documents_and_ttn['documents'] = $documents;
+            $documents_and_ttn['ttn'] = $ttn;
+            echo json_encode($documents_and_ttn);
         } else {
             $response = [
                 'result' => false,

@@ -49,6 +49,8 @@ formManagerTtn.send = function send() {
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
+//        console.log("data_from_documents_backend:");
+//        console.log(data);
         body: JSON.stringify(data)
     }).then(function (response) {
         return response.json();
