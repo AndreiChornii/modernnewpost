@@ -66,6 +66,7 @@ class EntryPoint {
             }
             
 //            echo $title;
+//            var_dump($_SESSION);
 //            if( (trim($title) === 'Log In') || (trim($title) === 'Register an account') || (trim($title) === 'Documents') )
             if(trim($title) !== '')
             echo $this->loadTemplate('layout.html.php', [

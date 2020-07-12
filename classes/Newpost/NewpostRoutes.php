@@ -69,6 +69,12 @@ class NewpostRoutes implements \Ninja\Routes {
                     'action' => 'getDocuments'
                 ]
             ],
+            'getaddeddocuments' => [
+                'GET' => [
+                    'controller' => $documentController,
+                    'action' => 'getAddedDocuments'
+                ]
+            ],
         ];
 
         return $routes;

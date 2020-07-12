@@ -83,6 +83,60 @@ class Document {
         }
     }
     
+    public function getaddeddocuments() {
+//        return ['template' => 'loginsuccess.html.php', 
+//                'title' => 'getDocuments'];
+//        echo '11111111111111111111111111';
+//        $request = json_decode(file_get_contents('php://input'), true);
+//        var_dump($request);
+//
+//        $isValid = $this->validTtn($request);
+//        var_dump($isValid);
+
+//        if ($isValid['rezult']) {
+            
+            
+            //            $user = $this->authentication->getUser();
+         $request['id_user'] = $_SESSION['id_user'];
+//         $request['id'] = '';
+            
+//            var_dump($request);
+
+//            var_dump($this->documentsTable);
+
+//         $this->documentTable->save($request);
+//            
+//            
+//            $documents = getDocuments($request['id_user'], $DB);
+          $documents = $this->documentTable->find('id_user', $request['id_user']);
+//            var_dump($documents);
+//            echo json_encode($documents);
+//          DELETE  $ttn = getStatus($request);  
+//            var_dump($request['ttn']);
+//            $ttn = $this->getStatus($request);
+//            var_dump($ttn);
+//
+//            if (($documents !== 'Get ttns bad') || ($ttn['rez'] !== 'from new_post bad')) {
+//                $documents_and_ttn = [];
+//                $documents_and_ttn['documents'] = $documents;
+//                $documents_and_ttn['ttn'] = $ttn;
+//                echo json_encode($documents_and_ttn);
+//            }
+            
+//            $documents_and_ttn = [];
+//            $documents_and_ttn['documents'] = $documents;
+//            $documents_and_ttn['ttn'] = $ttn;
+            echo json_encode($documents);
+//        } else {
+//            $response = [
+//                'result' => false,
+//                'message' => $isValid['errors']
+//            ];
+//
+//            echo json_encode($response);
+//        }
+    }
+    
     public function validTtn($data){
         $errors = [];
 

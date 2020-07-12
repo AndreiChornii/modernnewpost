@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles.css">
     <script defer src="/registration.js" type="text/javascript"></script>
     <script defer src="/documents.js" type="text/javascript"></script>
+    <script defer src="/get_documents.js" type="text/javascript"></script>
     <title>modernnewpost</title>
 </head>
 
