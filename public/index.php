@@ -1,5 +1,6 @@
 <?php
 try {
+        session_start();
 	include __DIR__ . '/../includes/autoload.php';
         
 //        echo $_SERVER['REQUEST_METHOD'];
@@ -8,8 +9,9 @@ try {
 //        echo $route;
 //        echo "<BR />";
         
-	$entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Newpost\NewpostRoutes());
+        $entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Newpost\NewpostRoutes());
 	$entryPoint->run();
+//        var_dump($_SESSION);
 }
 catch (PDOException $e) {
 	$title = 'An error has occurred';

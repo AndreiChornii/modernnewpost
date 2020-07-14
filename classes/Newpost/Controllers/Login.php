@@ -24,6 +24,7 @@ class Login {
         if ($this->authentication->login($_POST['login'], $_POST['email'])) {
 //            echo '/login/success';
 //            var_dump($_SESSION);
+//            $_SESSION['username'] = $_POST['login'];
             header('location: /login/success');
             
         } else {
@@ -43,7 +44,8 @@ class Login {
 
     public function logout() {
 //        unset($_SESSION);
-        $_SESSION['username'] = 'logout';
+        $this->authentication->logout();
+//        $_SESSION['username'] = null;
         return ['template' => 'logout.html.php',
             'title' => 'You have been logged out'];
     }

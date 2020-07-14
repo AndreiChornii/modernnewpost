@@ -31,6 +31,13 @@ class Authentication {
             return false;
         }
     }
+    
+    public function logout() {
+        $_SESSION['username'] = null;
+        $_SESSION['email'] = null;
+        $_SESSION['id_user'] = null;
+//        echo 'llllllllllll';
+    }
 
     public function isLoggedIn() {
 //        if (empty($_SESSION['username'])) {

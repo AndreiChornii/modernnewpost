@@ -75,6 +75,12 @@ class NewpostRoutes implements \Ninja\Routes {
                     'action' => 'getAddedDocuments'
                 ]
             ],
+            'logout' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'logout'
+                ]
+            ],
         ];
 
         return $routes;
