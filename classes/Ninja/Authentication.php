@@ -43,13 +43,13 @@ class Authentication {
 //        if (empty($_SESSION['username'])) {
 //            return false;
 //        }
-        if ($_SESSION['username'] === 'logout') {
+        if ($_SESSION['username'] === null) {
             return false;
         }
         $user = $this->users->find($this->usernameColumn, strtolower($_SESSION['username']));
-        $passwordColumn = $this->passwordColumn;
+        $emailColumn = $this->emailColumn;
         
-        if (!empty($user) && $user[0]->$passwordColumn === $_SESSION['password']) {
+        if (!empty($user) && $user[0]->$emailColumn === $_SESSION['email']) {
             return true;
         } else {
             return false;
@@ -58,6 +58,7 @@ class Authentication {
 
     public function getUser() {
         if ($this->isLoggedIn()) {
+//            return $this->users->find($this->usernameColumn, strtolower($_SESSION['username']))[0];
             return $this->users->find($this->usernameColumn, strtolower($_SESSION['username']))[0];
         } else {
             return false;

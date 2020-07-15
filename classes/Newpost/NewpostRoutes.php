@@ -67,6 +67,13 @@ class NewpostRoutes implements \Ninja\Routes {
                 'POST' => [
                     'controller' => $documentController,
                     'action' => 'getDocuments'
+                ],
+                'login' => true
+            ],
+            'login/error' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'error'
                 ]
             ],
             'getaddeddocuments' => [
@@ -79,7 +86,8 @@ class NewpostRoutes implements \Ninja\Routes {
                 'GET' => [
                     'controller' => $loginController,
                     'action' => 'logout'
-                ]
+                ],
+                'login' => true
             ],
         ];
 

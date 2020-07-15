@@ -24,10 +24,10 @@
 
                 <li><a class="header__link<?php if($route === '/documents') {echo ' active';} ?>" href="/documents">Documents</a></li>
 
-
                 <li><a class="header__link<?php if($route === '/logout') {echo ' active';} ?>" href="/logout">Logout</a></li>
 
-
+                <li><b><?php if($user) echo "Welcome: " . $user->login ?></b></li>
+                
             </ul>
         </nav>
     </header>
