@@ -26,6 +26,12 @@ class NewpostRoutes implements \Ninja\Routes {
         $loginController = new \Newpost\Controllers\Login($this->authentication);
 
         $routes = [
+            '' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'loginForm'
+                ]
+            ],
             'user/register' => [
                 'GET' => [
                     'controller' => $userController,
